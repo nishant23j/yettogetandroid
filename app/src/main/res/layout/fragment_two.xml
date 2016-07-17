@@ -1,0 +1,82 @@
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nishant.yettoget.TwoFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Two"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|right" >
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:layout_anchor="@id/listview_wishs"
+        app:layout_anchorGravity="bottom|right|end"
+        android:id = "@+id/addWishBtn"
+        android:background="@color/colorPrimaryDark"
+        android:src="@drawable/com_facebook_button_icon_blue"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+
+        android:textColor="@color/place_autocomplete_prediction_primary_text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+</FrameLayout>
+-->
+<android.support.design.widget.CoordinatorLayout android:id="@+id/main_content_wish"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingTop="3dp"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+
+tools:context="com.nishant.yettoget.TwoFragment"
+xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.facebook.share.widget.ShareButton
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/share_button"
+            android:text="Tell your Friends About YetToGet WishLIst"
+            />
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="5dp"
+    android:id="@+id/listview_wishs"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    />
+
+    </LinearLayout>
+
+
+
+</android.support.design.widget.CoordinatorLayout>

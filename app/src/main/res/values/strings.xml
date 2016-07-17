@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">YetToGet</string>
+    <string name="facebook_app_id">976408052478208</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_master_list_tabbed">Master List</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="add_task">Add an Item</string>
+    <string name="description">Enter task description:</string>
+    <string name="done">Done</string>
+    <string name="button_done"></string>
+    <string name="alert_title">Task</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+</resources>
