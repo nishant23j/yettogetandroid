@@ -7,5 +7,20 @@
         android:orderInCategory="100"
         app:showAsAction="never"
         android:title="Logout"></item>
+    <item
+        android:id="@+id/recent_button"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="Recently Bought items"></item>
+    <item
+        android:id="@+id/baby_button"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title=" Checkout Baby Registry "></item>
+    <item
+        android:id="@+id/wedding_button"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="Checkout Wedding Registry"></item>
 
 </menu>

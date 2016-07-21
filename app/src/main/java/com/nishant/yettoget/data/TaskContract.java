@@ -21,4 +21,10 @@ public class TaskContract {
         public static final String TABLE_CART = "carts";
         public static final String CART_TASK ="cart";
     }
+    public class recent implements BaseColumns
+    {
+        public static final String TABLE_RECENT="recents";
+        public static final String RECENT_TASK="recent";
+        //public static final String RECENT_ID = "_ID";
+    }
 }

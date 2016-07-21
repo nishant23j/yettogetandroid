@@ -1,6 +1,7 @@
 package com.nishant.yettoget;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -68,6 +69,26 @@ public class MasterList extends AppCompatActivity {
 
         if (id == R.id.logout_button) {
             logout();
+            return true;
+
+        }
+        if (id == R.id.recent_button) {
+            startActivity(new Intent(MasterList.this,RecentList.class));
+            return true;
+
+        }
+        if (id == R.id.baby_button) {
+            Uri uri = Uri.parse("https://www.myregistry.com/baby-registry-gifts-live-feed/"); // missing 'http://' will cause crashed
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+            return true;
+
+        }
+        if (id == R.id.wedding_button) {
+            Uri uri = Uri.parse("https://www.myregistry.com/WeddingGiftIdeas/"); // missing 'http://' will cause crashed
+            Intent intent1 = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent1);
+
             return true;
 
         }

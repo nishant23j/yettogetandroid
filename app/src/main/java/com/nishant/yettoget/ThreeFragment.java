@@ -1,5 +1,6 @@
 package com.nishant.yettoget;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.nishant.yettoget.R;
 import com.nishant.yettoget.data.CartDBHelper;
+import com.nishant.yettoget.data.Recent;
 import com.nishant.yettoget.data.TaskContract;
 import com.nishant.yettoget.data.WishDBHelper;
 
@@ -75,7 +77,7 @@ public class ThreeFragment extends Fragment{
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         menu.setHeaderTitle("Take Action!!");
-        menu.add("Remove from Cart!!!");
+        menu.add("Item Bought!");
         menu.add("Cancel");
     }
     @Override
@@ -84,17 +86,29 @@ public class ThreeFragment extends Fragment{
             if(item.getTitle()== "Add To Cart") {
                 Toast.makeText(getActivity(), "Cart", Toast.LENGTH_SHORT).show();
             }
-            if(item.getTitle()== "Remove from Cart!!!") {
+            if(item.getTitle()== "Item Bought!") {
                 AdapterView.AdapterContextMenuInfo info=
                         (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
                 int itemPosition = info.position;
                 Cursor cursor = (mCartAdapter).getCursor();
                 cursor.moveToPosition(itemPosition);
+                Recent helper1 = new Recent(getActivity());
+                SQLiteDatabase sqlDBrecent = helper1.getReadableDatabase();
                 CartDBHelper helper = new CartDBHelper(getActivity());
                 SQLiteDatabase sqlDB = helper.getReadableDatabase();
+                String inputTaskForRecent = cursor.getString(cursor.getColumnIndex(TaskContract.CartEntry.CART_TASK));
                 /*cursor = sqlDB.query(TaskContract.TaskEntry.TABLE_NAME,
                         new String[]{TaskContract.TaskEntry._ID, TaskContract.TaskEntry.COLUMN_TASK},
                         null, null, null, null, null);*/
+                ContentValues values = new ContentValues();
+                values.clear();
+                values.put(TaskContract.recent.RECENT_TASK, inputTaskForRecent);
+                //Insert the values into the Table for Tasks
+                sqlDBrecent.insertWithOnConflict(
+                        TaskContract.recent.TABLE_RECENT,
+                        null,
+                        values,
+                        SQLiteDatabase.CONFLICT_IGNORE);
 
                 String sql = String.format("DELETE FROM %s WHERE %s = '%s'",
                         TaskContract.CartEntry.TABLE_CART,

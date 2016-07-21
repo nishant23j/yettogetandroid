@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nishant.yettoget.data.CartDBHelper;
+import com.nishant.yettoget.data.Recent;
 import com.nishant.yettoget.data.TaskContract;
 import com.nishant.yettoget.data.WishDBHelper;
 
@@ -21,11 +22,14 @@ import com.nishant.yettoget.data.WishDBHelper;
 public class CartAdapter extends CursorAdapter{
     private static Context context;
     CartDBHelper helper;
+    Recent helper1;
+    CartAdapter cartAdapter;
 
     public CartAdapter(Context context, Cursor cursor) {
         super(context, cursor, 0);
         this.context = context;
         helper = new CartDBHelper(context);
+        helper1=new Recent(context);
     }
 
     // The newView method is used to inflate a new view and return it,
